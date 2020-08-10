@@ -1,0 +1,22 @@
+version: '2'
+services:
+  webapp1:
+    build: .
+    ports:
+     - "5000:5000"
+    volumes:
+     - .:/code
+    depends_on:
+     - redis
+
+  webapp2:
+    build: .
+    ports:
+     - "5001:5000"
+    volumes:
+     - .:/code
+    depends_on:
+     - redis
+
+  redis:
+    image: redis
